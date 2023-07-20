@@ -1,0 +1,14 @@
+services:
+  task_runtime:
+    image: quindarspace/runtimes:v1.2.0
+    ports:
+      - 8080:8080
+    environment:
+      IGNORE_AUTHORIZATION: 1
+      # you can set to CRITICAL, ERROR, WARNING, INFO, DEBUG
+      LOG_LEVEL: INFO
+    env_file:
+      - local_run.env
+    volumes:
+      - ./:/home/app/tasks
+      - ./LOCAL_RUNS:/home/app/tasks/LOCAL_RUNS
